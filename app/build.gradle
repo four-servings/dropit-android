@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+apply from: '../common-android.gradle'
+
+apply from: '../dependencies.gradle'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    defaultConfig {
+        applicationId "$application.id"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation project("$modularization.presentation")
+    implementation project("$modularization.data")
+    implementation project("$modularization.domain")
+    // support library
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    // hilt
+    implementation "$appDependencies.hiltAndroid"
+    kapt "$appDependencies.hiltAndroidCompiler"
+    implementation "$appDependencies.hiltViewmodel"
+    implementation "$appDependencies.hiltCommon"
+    kapt "$appDependencies.hiltCompiler"
+    //room
+    implementation "$appDependencies.roomRuntime"
+    implementation "$appDependencies.roomKtx"
+    kapt "$appDependencies.roomCompiler"
+    testImplementation "$appDependencies.archCoreTest"
+}

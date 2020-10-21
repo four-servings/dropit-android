@@ -1,0 +1,33 @@
+buildscript {
+    apply from: './dependencies.gradle'
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigationVersion"
+        classpath "com.google.gms:google-services:$versions.gmsGradle"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$versions.crashlyticsGradle"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://androidx.dev/snapshots/builds/6543454/artifacts/repository/"
+        }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

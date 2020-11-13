@@ -64,7 +64,8 @@ ext {
             espressoVersion         : '3.2.0',
             mockitoKotlinVersion    : '2.2.0',
             mockitoInlineVersion    : '3.3.3',
-            debugdbVersion          : '1.0.6'
+            debugdbVersion          : '1.0.6',
+            mockitoVersion          : '2.7.1',
     ]
     modularization = [
             presentation                : ':presentation',
@@ -140,6 +141,8 @@ ext {
             truth                   : "com.google.truth:truth:$versions.truthVersion", //androidTestImplementation
             androidxJunit           : "androidx.test.ext:junit:$versions.androidxTestJunit", //androidTestImplementation
             androidTestRunner       : "com.android.support.test:runner:$versions.androidTestRunner", //androidTestImplementation
-            espresso                : "androidx.test.espresso:espresso-core:$versions.espressoVersion" //androidTestImplementation
+            espresso                : "androidx.test.espresso:espresso-core:$versions.espressoVersion", //androidTestImplementation
+            mockitoCore             : "org.mockito:mockito-core:$versions.mockitoVersion", // For instrumentation tests on Android devices and emulators
+            mockitoAndroid          : "org.mockito:mockito-android:$versions.mockitoVersion"
     ]
 }

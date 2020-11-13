@@ -53,7 +53,7 @@ class DataBaseTest {
 
     @Mock
     private lateinit var dropitRepository: DropitRepository
-    private var sharedHelper = mock(SharedPrefHelper::class.java)
+
     private lateinit var dropitDataSource: LocalDataSource
 
     @Before
@@ -65,7 +65,7 @@ class DataBaseTest {
 
         databaseDao = db.databaseDao()
 
-        dropitDataSource = LocalDataSourceImpl(databaseDao, sharedHelper, context)
+        dropitDataSource = LocalDataSourceImpl(databaseDao, context)
         dropitRepository = DropitRepositoryImpl(dropitDataSource)
     }
 

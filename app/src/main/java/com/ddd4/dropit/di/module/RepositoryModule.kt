@@ -30,9 +30,8 @@ object RepositoryModule {
     @Singleton
     fun provideDatabaseRepository(
         databaseDao: DatabaseDao,
-        sharedPrefHelper: SharedPrefHelper,
         @ApplicationContext context: Context
     ): LocalDataSource {
-        return LocalDataSourceImpl(databaseDao, sharedPrefHelper, context)
+        return LocalDataSourceImpl(databaseDao, context)
     }
 }

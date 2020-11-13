@@ -18,7 +18,6 @@ import java.util.*
 
 class LocalDataSourceImpl(
     private val databaseDao: DatabaseDao,
-    private val sharedPrefHelper: SharedPrefHelper,
     private val context: Context
 ): LocalDataSource {
 

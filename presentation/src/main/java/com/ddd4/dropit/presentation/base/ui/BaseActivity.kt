@@ -1,6 +1,5 @@
 package com.ddd4.dropit.presentation.base.ui
 
-import android.os.Build
 import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
@@ -8,7 +7,6 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.ddd4.dropit.presentation.R
 
 abstract class BaseActivity<T: ViewDataBinding>(private val layoutId : Int) : AppCompatActivity() {
 

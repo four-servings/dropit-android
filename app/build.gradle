@@ -37,6 +37,9 @@ dependencies {
     implementation project("$modularization.data")
     implementation project("$modularization.remote")
     implementation project("$modularization.local")
+    //Android
+    implementation "$libraries.appcompat"
+    implementation "$libraries.ktx"
     //Room
     implementation "$libraries.roomRuntime"
     implementation "$libraries.roomKtx"

@@ -1,16 +1,12 @@
 package com.ddd4.dropit.presentation.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.ddd4.dropit.presentation.R
 import com.ddd4.dropit.presentation.base.ui.BaseActivity
 import com.ddd4.dropit.presentation.databinding.ActivitySplashBinding
-import com.ddd4.dropit.presentation.ui.category.CategoryActivity
 import com.ddd4.dropit.presentation.ui.main.MainActivity
-import com.ddd4.dropit.presentation.ui.moveFolder.MoveFolderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

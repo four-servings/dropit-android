@@ -75,7 +75,7 @@ class TextureCaptureUtil @Inject constructor(
     private fun createCameraPreviewSession() {
         try {
             val texture = textureView.surfaceTexture
-            texture.setDefaultBufferSize(imageDimension.width, imageDimension.height)
+            texture?.setDefaultBufferSize(imageDimension.width, imageDimension.height)
 
             val surface = Surface(texture)
             val captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)

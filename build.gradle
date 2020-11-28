@@ -1,5 +1,5 @@
 buildscript {
-    apply from: './dependencies.gradle'
+    apply from: './build-version.gradle'
 
     repositories {
         google()
@@ -7,12 +7,12 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigationVersion"
-        classpath "com.google.gms:google-services:$versions.gmsGradle"
-        classpath "com.google.firebase:firebase-crashlytics-gradle:$versions.crashlyticsGradle"
+        classpath "com.android.tools.build:gradle:$projects.buildGradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$projects.kotlinGradle"
+        classpath "com.google.gms:google-services:$projects.gmsGradle"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$projects.crashlyticsGradle"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$projects.naviArgsGradle"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$projects.hiltGradle"
     }
 }
 
@@ -21,10 +21,6 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven {
-            url "https://androidx.dev/snapshots/builds/6543454/artifacts/repository/"
-        }
-
     }
 }
 

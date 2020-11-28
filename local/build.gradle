@@ -7,11 +7,9 @@ apply from: '../build-config.gradle'
 apply from: '../build-version.gradle'
 
 dependencies {
-    implementation project("$modularization.domain")
+    implementation project("$modularization.data")
     //Room
     implementation "$libraries.roomRuntime"
     implementation "$libraries.roomKtx"
     kapt "$libraries.roomCompiler"
-    //Gson (Legacy, it will be delete when Json file replace with server API)
-    implementation "$libraries.retrofitGson"
 }

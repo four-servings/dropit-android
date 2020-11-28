@@ -57,13 +57,21 @@ class CaptureActivity : BaseActivity<ActivityCaptureBinding>(R.layout.activity_c
     }
 
     val textureListener = object: TextureView.SurfaceTextureListener {
-        override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {}
-        override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {}
-        override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
+
+        override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
+            textureCaptureUtil.openCamera(texture)
+        }
+
+        override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
+
+        }
+
+        override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
             return false
         }
-        override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
-            textureCaptureUtil.openCamera(texture)
+
+        override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
+
         }
     }
 

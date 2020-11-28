@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ddd4.dropit.presentation">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application>
-        <activity android:name=".ui.splash.SplashActivity"></activity>
+
+        <receiver
+            android:name=".util.alarm.AlarmReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ui.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.category.CategoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.folder.FolderActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.moveFolder.MoveFolderActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.add.AddActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.capture.CaptureActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.detailfolder.FolderItemDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.createfolderdialog.CreateFolderDialogActivity"
+            android:theme="@style/Theme.DropItDialog" />
+
+        <activity android:name=".ui.enddialog.EndDialogActivity"
+            android:theme="@style/Theme.DropItDialog" />
+
     </application>
 
 </manifest>

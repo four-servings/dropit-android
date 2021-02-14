@@ -1,11 +1,13 @@
 package com.ddd4.dropit.di.module
 
+import com.ddd4.dropit.di.qualifier.IoDispatcher
 import com.ddd4.dropit.domain.repository.DropitRepository
 import com.ddd4.dropit.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
 @Module
@@ -24,8 +26,11 @@ object UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideFolderUseCase(dropitRepository: DropitRepository): GetFoldersUseCase =
-        GetFoldersUseCase(dropitRepository)
+    fun provideFolderUseCase(
+        dropitRepository: DropitRepository,
+        @IoDispatcher coroutineDispatcher: CoroutineDispatcher
+    ): GetFoldersUseCase =
+        GetFoldersUseCase(dropitRepository, coroutineDispatcher)
 
     @Provides
     @Singleton
